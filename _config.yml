@@ -1,3 +1,5 @@
 title: My DevOps Blog
 description: Built as part of a Level 5 DevOps learning guide.
 theme: minima
+exclude:
+  - README.md
