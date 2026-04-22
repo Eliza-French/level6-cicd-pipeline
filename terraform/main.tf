@@ -18,9 +18,13 @@ data "github_repository" "this" {
 
 # Branch protection for main. This is the codified equivalent of the
 # Settings -> Branches rule you would otherwise configure by hand.
-# Required status checks and the review count are declared here once;
-# any future change goes through a PR against this file, producing the
-# audit trail that click-ops cannot.
+# Required status checks are declared here once; any future change
+# goes through a PR against this file, producing the audit trail that
+# click-ops cannot.
+#
+# Required pull request reviews are deliberately omitted: this is a
+# single-contributor project and a self-approval gate would only add
+# friction. In a team setting the block below would be re-enabled.
 resource "github_branch_protection" "main" {
   repository_id = data.github_repository.this.node_id
   pattern       = "main"
@@ -28,11 +32,6 @@ resource "github_branch_protection" "main" {
   required_status_checks {
     strict   = true
     contexts = var.required_status_checks
-  }
-
-  required_pull_request_reviews {
-    required_approving_review_count = var.required_approving_review_count
-    dismiss_stale_reviews           = true
   }
 
   enforce_admins      = true

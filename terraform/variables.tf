@@ -20,9 +20,3 @@ variable "required_status_checks" {
     "Build",
   ]
 }
-
-variable "required_approving_review_count" {
-  description = "How many approving reviews a PR needs before it can be merged."
-  type        = number
-  default     = 1
-}
