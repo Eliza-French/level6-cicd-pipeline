@@ -1,0 +1,50 @@
+---
+# Provisions the local tooling a contributor needs to develop this Jekyll
+# site: a versioned Ruby toolchain (via rbenv) and Docker for the
+# container-based build workflow.
+#
+# Usage:
+#   ansible-galaxy collection install -r ansible/requirements.yml
+#   ansible-playbook -i localhost, -c local ansible/local-dev.yml
+#
+# This is the configuration-management layer for the pipeline: the same
+# way the GitHub Actions YAML describes the build environment in CI, this
+# playbook describes the build environment locally. One command, idempotent,
+# version-controlled.
+
+- name: Provision local Jekyll development environment
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  vars:
+    homebrew_formulae:
+      - rbenv
+      - ruby-build
+    homebrew_casks:
+      - docker
+
+  pre_tasks:
+    - name: Require macOS
+      ansible.builtin.assert:
+        that:
+          - ansible_facts['os_family'] == 'Darwin'
+        fail_msg: >-
+          This playbook targets macOS. Extend with apt/yum tasks for
+          Linux, or run inside a GitHub Codespace (Ubuntu).
+
+    - name: Require Homebrew to be installed
+      ansible.builtin.command: which brew
+      register: brew_check
+      changed_when: false
+
+  tasks:
+    - name: Install CLI formulae
+      community.general.homebrew:
+        name: "{{ homebrew_formulae }}"
+        state: present
+
+    - name: Install GUI casks
+      community.general.homebrew_cask:
+        name: "{{ homebrew_casks }}"
+        state: present
