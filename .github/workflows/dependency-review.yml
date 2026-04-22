@@ -1,0 +1,25 @@
+# Scans a pull request for newly introduced dependencies with known
+# vulnerabilities or disallowed licences. Blocks the merge if any are found.
+# https://github.com/actions/dependency-review-action
+name: Dependency Review
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: moderate
+          comment-summary-in-pr: on-failure
