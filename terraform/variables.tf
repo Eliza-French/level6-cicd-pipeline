@@ -13,16 +13,23 @@ variable "repository_name" {
 variable "required_status_checks" {
   description = <<-EOT
     Status check names that must pass before a PR can be merged to main.
-    Each entry must be the full GitHub context string, which is
-    "<workflow name> / <job name>" as reported on the PR's checks tab.
-    A bare workflow name (e.g. "Lint Code Base") will never match and
-    will leave the check waiting forever.
+    Each entry must match the full GitHub context string exactly as it
+    appears on the PR's checks tab, including any event qualifier that
+    GitHub appends when a workflow is triggered by multiple events
+    (push + pull_request, etc.). The format is:
+
+      "<workflow name> / <job name> (<event>)"
+
+    A bare workflow name or a name missing the "(pull_request)" suffix
+    will never match and will leave the check waiting forever. The
+    safest way to populate this list is to copy the strings straight
+    from the "Successful checks" section of a recent PR.
   EOT
   type        = list(string)
   default = [
-    "Lint Code Base / run-lint",
-    "Dependency Review / dependency-review",
-    "CodeQL Advanced / Analyze (actions)",
-    "Jekyll site CI / build",
+    "Lint Code Base / run-lint (pull_request)",
+    "Dependency Review / dependency-review (pull_request)",
+    "CodeQL Advanced / Analyze (actions) (pull_request)",
+    "Jekyll site CI / build (pull_request)",
   ]
 }
