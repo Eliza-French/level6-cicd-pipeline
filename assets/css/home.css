@@ -1,0 +1,54 @@
+/*
+ * Homepage polish for My DevOps Blog.
+ * Kept to small, low-specificity rules that layer on top of the
+ * minima theme rather than fighting it.
+ */
+
+.site-intro {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #4a5058;
+  margin: 0.25rem 0 2rem;
+  max-width: 42em;
+}
+
+.post-list-homepage {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  border-top: 1px solid #eaecef;
+}
+
+.post-list-homepage li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eaecef;
+}
+
+.post-list-homepage__title {
+  font-weight: 500;
+  text-decoration: none;
+  color: #0366d6;
+}
+
+.post-list-homepage__title:hover {
+  text-decoration: underline;
+}
+
+.post-list-homepage__date {
+  color: #8a8f98;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .post-list-homepage li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+}
