@@ -43,31 +43,32 @@
   // 2022 DORA State of DevOps report thresholds.
   // For df (throughput) higher is better, matched by `min`.
   // For lt / cfr / mttr lower is better, matched by `max`.
+  //
+  // Lead Time and Time to Restore share the same hour-based
+  // bands in the 2022 report (< 1h, < 1d, < 1 week, else), so
+  // the two tier tables are defined once and reused.
+  const TIME_TIERS = [
+    { max: 1, label: 'Elite', cls: 'tier-elite' },
+    { max: 24, label: 'High', cls: 'tier-high' },
+    { max: 24 * 7, label: 'Medium', cls: 'tier-medium' },
+    { max: Infinity, label: 'Low', cls: 'tier-low' }
+  ];
+
   const TIERS = {
     df: [
-      { min: 1,      label: 'Elite',  cls: 'tier-elite'  },
-      { min: 1 / 7,  label: 'High',   cls: 'tier-high'   },
+      { min: 1, label: 'Elite', cls: 'tier-elite' },
+      { min: 1 / 7, label: 'High', cls: 'tier-high' },
       { min: 1 / 30, label: 'Medium', cls: 'tier-medium' },
-      { min: 0,      label: 'Low',    cls: 'tier-low'    }
+      { min: 0, label: 'Low', cls: 'tier-low' }
     ],
-    lt: [
-      { max: 1,        label: 'Elite',  cls: 'tier-elite'  },
-      { max: 24,       label: 'High',   cls: 'tier-high'   },
-      { max: 24 * 7,   label: 'Medium', cls: 'tier-medium' },
-      { max: Infinity, label: 'Low',    cls: 'tier-low'    }
-    ],
+    lt: TIME_TIERS,
     cfr: [
-      { max: 15,  label: 'Elite',  cls: 'tier-elite'  },
-      { max: 30,  label: 'High',   cls: 'tier-high'   },
-      { max: 45,  label: 'Medium', cls: 'tier-medium' },
-      { max: 100, label: 'Low',    cls: 'tier-low'    }
+      { max: 15, label: 'Elite', cls: 'tier-elite' },
+      { max: 30, label: 'High', cls: 'tier-high' },
+      { max: 45, label: 'Medium', cls: 'tier-medium' },
+      { max: 100, label: 'Low', cls: 'tier-low' }
     ],
-    mttr: [
-      { max: 1,        label: 'Elite',  cls: 'tier-elite'  },
-      { max: 24,       label: 'High',   cls: 'tier-high'   },
-      { max: 24 * 7,   label: 'Medium', cls: 'tier-medium' },
-      { max: Infinity, label: 'Low',    cls: 'tier-low'    }
-    ]
+    mttr: TIME_TIERS
   };
 
   const tierFor = (metric, value) => {

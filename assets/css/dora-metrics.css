@@ -113,11 +113,26 @@
   color: white;
 }
 
-.tier-elite   { background: #2ea44f; }
-.tier-high    { background: #0366d6; }
-.tier-medium  { background: #dbab09; color: #24292e; }
-.tier-low     { background: #cb2431; }
-.tier-unknown { background: #959da5; }
+.tier-elite {
+  background: #2ea44f;
+}
+
+.tier-high {
+  background: #0366d6;
+}
+
+.tier-medium {
+  background: #dbab09;
+  color: #24292e;
+}
+
+.tier-low {
+  background: #cb2431;
+}
+
+.tier-unknown {
+  background: #959da5;
+}
 
 .dora-card-sample {
   margin-top: 0.4rem;
@@ -152,6 +167,7 @@
   .dora-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .dora-card-value {
     font-size: 1.25rem;
   }
