@@ -13,7 +13,10 @@
     "terraform",
     "tfstate",
     "tfsec",
-    "trivy"
+    "trivy",
+    "CISA",
+    "GSMA",
+    "NCSC"
   ],
   "ignorePaths": [
     "_site/**",
