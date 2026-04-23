@@ -1,0 +1,30 @@
+{
+  "version": "0.2",
+  "language": "en-GB",
+  "words": [
+    "cspell",
+    "devops",
+    "devsecops",
+    "dockerfile",
+    "ghcr",
+    "jekyll",
+    "rbenv",
+    "sarif",
+    "terraform",
+    "tfstate",
+    "tfsec",
+    "trivy",
+    "CISA",
+    "GSMA",
+    "NCSC"
+  ],
+  "ignorePaths": [
+    "_site/**",
+    "node_modules/**",
+    ".terraform/**",
+    "terraform/.terraform.lock.hcl",
+    "Gemfile.lock",
+    "*.tfstate",
+    "*.tfstate.*"
+  ]
+}

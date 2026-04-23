@@ -1,0 +1,5 @@
+# URLs that lychee should skip. One regex pattern per line.
+# Use sparingly: every line here is a link the pipeline has stopped
+# protecting. Prefer fixing the link or, for hosts that rate-limit
+# unauthenticated bots, adding the response code to --accept in the
+# workflow args.
