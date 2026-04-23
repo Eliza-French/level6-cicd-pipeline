@@ -1,8 +1,8 @@
 <ul class="post-list-homepage">
 {% for post in site.posts %}
   <li>
-    <a class="post-list-homepage__title" href="{{ post.url }}">{{ post.title }}</a>
-    <time class="post-list-homepage__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+    <a class="post-list-title" href="{{ post.url }}">{{ post.title }}</a>
+    <time class="post-list-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
   </li>
 {% endfor %}
 </ul>

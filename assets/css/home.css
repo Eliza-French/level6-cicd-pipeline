@@ -28,17 +28,17 @@
   border-bottom: 1px solid #eaecef;
 }
 
-.post-list-homepage__title {
+.post-list-title {
   font-weight: 500;
   text-decoration: none;
   color: #0366d6;
 }
 
-.post-list-homepage__title:hover {
+.post-list-title:hover {
   text-decoration: underline;
 }
 
-.post-list-homepage__date {
+.post-list-date {
   color: #8a8f98;
   font-size: 0.88rem;
   font-variant-numeric: tabular-nums;
