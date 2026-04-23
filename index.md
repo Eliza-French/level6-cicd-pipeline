@@ -29,8 +29,9 @@ measure the throughput and stability of a delivery pipeline. The
 widget pulls them live from the GitHub REST API and grades each one
 against the 2022 *State of DevOps* Elite, High, Medium and Low bands.
 
-Results are cached in the browser for five minutes to respect the
-API's 60-per-hour unauthenticated rate limit.
+Results are cached in the browser for five minutes to stay under
+the 60-per-hour rate limit that GitHub imposes on unauthenticated
+requests.
 
 <link rel="stylesheet" href="assets/css/dora-metrics.css">
 <link rel="stylesheet" href="assets/css/home.css">
