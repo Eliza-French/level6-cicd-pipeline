@@ -6,8 +6,11 @@
     "devops",
     "devsecops",
     "dockerfile",
+    "dora",
+    "forsgren",
     "ghcr",
     "jekyll",
+    "mttr",
     "rbenv",
     "sarif",
     "terraform",
@@ -17,6 +20,10 @@
     "CISA",
     "GSMA",
     "NCSC"
+  ],
+  "ignoreRegExpList": [
+    "\\{%[^%]*%\\}",
+    "\\{\\{[^}]*\\}\\}"
   ],
   "ignorePaths": [
     "_site/**",

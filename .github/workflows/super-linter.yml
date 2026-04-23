@@ -27,3 +27,8 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # JAVASCRIPT_ES (eslint) is the authoritative JS linter.
+          # JAVASCRIPT_STANDARD is an opinionated preset that duplicates
+          # the same checks with conflicting semicolon/spacing rules; we
+          # disable it to avoid a second, redundant CI gate.
+          VALIDATE_JAVASCRIPT_STANDARD: false
