@@ -21,6 +21,10 @@
     "GSMA",
     "NCSC"
   ],
+  "ignoreRegExpList": [
+    "\\{%[^%]*%\\}",
+    "\\{\\{[^}]*\\}\\}"
+  ],
   "ignorePaths": [
     "_site/**",
     "node_modules/**",

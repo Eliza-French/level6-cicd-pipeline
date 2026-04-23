@@ -24,8 +24,8 @@ what the pipeline is actually doing.
   <p>Loading metrics from the GitHub API…</p>
 </div>
 
-<link rel="stylesheet" href="{{ '/assets/css/dora-metrics.css' | relative_url }}">
-<script src="{{ '/assets/js/dora-metrics.js' | relative_url }}" defer></script>
+<link rel="stylesheet" href="assets/css/dora-metrics.css">
+<script src="assets/js/dora-metrics.js" defer></script>
 
 ### What DORA metrics are, and why they live on the homepage
 
