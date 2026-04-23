@@ -8,7 +8,7 @@ title: My DevOps Blog
      deliberately embedded HTML + JS; the rest of the file is
      plain markdown. -->
 
-## Live DORA metrics for this repo
+## Live DORA metrics for this repository
 
 Below is a live widget that pulls the four DORA metrics for this
 repository from the GitHub REST API and grades each one against the
