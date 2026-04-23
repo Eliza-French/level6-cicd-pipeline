@@ -1,0 +1,41 @@
+# Spell-check for blog content. Runs on any PR or push that touches a
+# post, the homepage, or the dictionary itself. Scope is narrow on
+# purpose: the blog is what a reader sees, and typos there are the
+# failure mode this gate exists to catch. Workflow YAML, Terraform,
+# and Ansible code are excluded — those have their own linters.
+name: Spell check
+
+on:
+  pull_request:
+    paths:
+      - "_posts/**"
+      - "index.md"
+      - "cspell.json"
+      - ".github/workflows/cspell.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "_posts/**"
+      - "index.md"
+      - "cspell.json"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  cspell:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run cspell
+        uses: streetsidesoftware/cspell-action@v6
+        with:
+          files: |
+            _posts/**/*.md
+            index.md
+          config: cspell.json
+          inline: warning
+          strict: true
