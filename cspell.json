@@ -15,7 +15,7 @@
     "tfsec",
     "trivy",
     "CISA",
-    "GMSA",
+    "GSMA",
     "NCSC"
   ],
   "ignorePaths": [
