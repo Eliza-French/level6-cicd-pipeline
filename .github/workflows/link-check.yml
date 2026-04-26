@@ -1,7 +1,9 @@
 # Link checker for blog content. Runs in two modes:
 #
-#  - pull_request: fast gate on any PR that touches markdown under
-#    _posts/ or index.md — catches broken links before they ship.
+#  - pull_request: gate on every PR (so it can be a required status
+#    check on main). The lychee args below scope the actual check to
+#    _posts/**/*.md and index.md, so unrelated PRs incur only the
+#    cache-restore cost — the check still runs and reports.
 #  - schedule (nightly): sweeps the already-published content to catch
 #    link rot over time, and opens a tracking issue if anything is
 #    broken so the failure can't sit silently in the Actions tab.
@@ -15,11 +17,6 @@ name: Link check
 
 on:
   pull_request:
-    paths:
-      - "_posts/**/*.md"
-      - "index.md"
-      - ".github/workflows/link-check.yml"
-      - ".lycheeignore"
   schedule:
     # 07:00 UTC daily. Off-peak for UK contributors; before the
     # morning stand-up if there is one.

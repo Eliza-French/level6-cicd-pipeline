@@ -34,5 +34,7 @@ variable "required_status_checks" {
     "dependency-review",
     "Analyze (actions)",
     "build",
+    "cspell",
+    "links",
   ]
 }
