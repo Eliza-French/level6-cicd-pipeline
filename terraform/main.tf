@@ -7,15 +7,6 @@ provider "github" {
   owner = var.repository_owner
 }
 
-# Reference the existing repository as a data source rather than managing
-# it as a resource. This keeps Terraform's scope intentionally narrow:
-# only the governance rules below are under IaC for now; repo metadata
-# (description, topics, visibility) stays out until it is explicitly
-# migrated in a later increment.
-data "github_repository" "this" {
-  name = var.repository_name
-}
-
 # Branch protection for main. This is the codified equivalent of the
 # Settings -> Branches rule you would otherwise configure by hand.
 # Required status checks are declared here once; any future change
@@ -25,8 +16,14 @@ data "github_repository" "this" {
 # Required pull request reviews are deliberately omitted: this is a
 # single-contributor project and a self-approval gate would only add
 # friction. In a team setting the block below would be re-enabled.
+#
+# repository_id accepts either a node_id (resolved via a data source)
+# or the bare repository name. The name form is used here because the
+# github_repository data source fetches /pages, which can return 404
+# under some token-scope configurations even when Pages is working,
+# blocking the plan with no useful diagnostic.
 resource "github_branch_protection" "main" {
-  repository_id = data.github_repository.this.node_id
+  repository_id = var.repository_name
   pattern       = "main"
 
   required_status_checks {
