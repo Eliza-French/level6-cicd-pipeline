@@ -7,11 +7,7 @@ name: Spell check
 
 on:
   pull_request:
-    paths:
-      - "_posts/**"
-      - "index.md"
-      - "cspell.json"
-      - ".github/workflows/cspell.yml"
+    branches: [ "main" ]
   push:
     branches: ["main"]
     paths:
