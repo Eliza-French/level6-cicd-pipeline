@@ -15,11 +15,7 @@ name: Link check
 
 on:
   pull_request:
-    paths:
-      - "_posts/**/*.md"
-      - "index.md"
-      - ".github/workflows/link-check.yml"
-      - ".lycheeignore"
+    branches: [ "main" ]
   schedule:
     # 07:00 UTC daily. Off-peak for UK contributors; before the
     # morning stand-up if there is one.
