@@ -19,7 +19,8 @@
     "trivy",
     "CISA",
     "GSMA",
-    "NCSC"
+    "NCSC",
+    "NESAS"
   ],
   "ignoreRegExpList": [
     "\\{%[^%]*%\\}",
