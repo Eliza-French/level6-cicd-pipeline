@@ -4,9 +4,9 @@ title: "GSMA NESAS: Assuring Telecoms Equipment Security"
 date: 2026-02-12
 ---
 
-The Network Equipment Security Assurance Scheme (NESAS) is a [GSMA](https://www.gsma.com/old-65424) initiative, run jointly with 3GPP, that audits how equipment vendors build and maintain the kit running our networks.
+The Network Equipment Security Assurance Scheme (NESAS) is a [GSMA](https://www.gsma.com/) initiative, run jointly with 3GPP, that audits how equipment vendors build and maintain the kit running our networks.
 
-Two parts belowsgf
+Two parts below:
 
 - **Vendor development audit** — an independent review of how a supplier writes, tests, and patches its products.
 - **Product evaluation** — security testing of specific product categories against agreed baselines.
