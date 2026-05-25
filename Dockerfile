@@ -1,6 +1,8 @@
 # Reproducible Jekyll image. Version-pinned so the build is deterministic
 # and so Trivy has a stable target to scan for CVEs on every push and PR.
-FROM jekyll/builder:4.2.2
+FROM ruby:2.5
+
+RUN gem install bundler jekyll -v 3.8.5
 
 WORKDIR /srv/jekyll
 
